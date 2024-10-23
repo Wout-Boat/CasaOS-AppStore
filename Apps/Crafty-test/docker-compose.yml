@@ -1,4 +1,4 @@
-name: crafty
+name: crafty-test
 # Base file from https://gitlab.com/crafty-controller/crafty-4/-/blob/dev/docker/docker-compose.yml
 version: "3"
 
