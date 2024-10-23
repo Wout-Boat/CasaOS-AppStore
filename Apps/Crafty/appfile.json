@@ -39,7 +39,7 @@
         "network_model": "bridge",
         "web_ui": {
             "http": "8111",
-            "path": "/panel"
+            "path": "/"
         },
         "envs": [
             {
