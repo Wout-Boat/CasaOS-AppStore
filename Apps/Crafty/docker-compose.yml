@@ -1,15 +1,16 @@
-name: crafty-4.4.4-test
+name: crafty
 # Base file from https://gitlab.com/crafty-controller/crafty-4/-/blob/dev/docker/docker-compose.yml
 version: "3"
 
 services:
   crafty:
-    container_name: crafty-container-4.4.4-test
-    image: registry.gitlab.com/crafty-controller/crafty-4:4.4.4
+    container_name: crafty-container
+    image: registry.gitlab.com/crafty-controller/crafty-4:4.4.0
     restart: always
     environment:
       - TZ=Etc/UTC
     ports:
+      - "8110:8000" # HTTP
       - "8111:8443" # HTTPS
       - "8112:8123" # DYNMAP
       - "19132:19132/udp" # BEDROCK
@@ -23,6 +24,12 @@ services:
 
     x-casaos:
       ports:
+        - container: "8000"
+          description:
+            en_us: WebUI HTTP Port
+            zh_cn: WebUI HTTP端口
+          protocol: tcp
+
         - container: "19132"
           description:
             en_us: Minecraft Bedrock listening Port (UDP)
